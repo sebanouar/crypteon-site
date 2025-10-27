@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "last_update": "pending",
+  "metrics": {
+    "tvl_usd": 0,
+    "btc_mined_30d": 0,
+    "asic_active": 0,
+    "power_kw": 0,
+    "buyback_budget_usd": 0
+  }
+}
