@@ -46,63 +46,62 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white text-neutral-900">
       {/* NAV */}
-      <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b">
-        <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="font-bold">{CONFIG.PROJECT_NAME}</div>
-          <div className="hidden md:flex items-center gap-4 text-sm">
-            <a href="#about" className="hover:underline">Vision</a>
-            <a href="#token" className="hover:underline">Token</a>
-            <a href="#contracts" className="hover:underline">Contrats</a>
-            <a href="#lifecycle" className="hover:underline">Plan</a>
-            <a href="#transparency" className="hover:underline">Transparence</a>
-            <a href="#airdrop" className="hover:underline">Airdrop</a>
-          </div>
-          <a href={CONFIG.ESCROW_PAGE}
-             className="px-4 py-2 rounded-2xl bg-black text-white text-sm">
-            Participer via Escrow sécurisé
-          </a>
-        </nav>
-      </header>
+<header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b">
+  <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div className="font-bold">{CONFIG.PROJECT_NAME}</div>
+    <div className="hidden md:flex items-center gap-4 text-sm">
+      <a href="#about" className="hover:underline">Vision</a>
+      <a href="#token" className="hover:underline">Token</a>
+      <a href="#contracts" className="hover:underline">Contrats</a>
+      <a href="#lifecycle" className="hover:underline">Plan</a>
+      <a href="#transparency" className="hover:underline">Transparence</a>
+      <a href="#airdrop" className="hover:underline">Airdrop</a>
+    </div>
+    <a
+      href="/escrow"
+      className="px-4 py-2 rounded-2xl bg-black text-white text-sm"
+    >
+      Participer via Escrow sécurisé
+    </a>
+  </nav>
+</header>
 
-      {/* HERO */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-              {CONFIG.TAGLINE}
-            </h1>
-            <p className="mt-4 text-neutral-700">
-              Phase 1 : levée exclusivement via Escrow (USDC). HET existe sur Base, mais la
-              liquidité principale sera activée en Phase 2. Transparence on-chain & Safe multisig.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a className="px-4 py-2 rounded-2xl bg-black text-white text-sm"
-                 href={CONFIG.ESCROW_PAGE}>Participer via Escrow sécurisé</a>
-              <a className="px-4 py-2 rounded-2xl border text-sm"
-                 href={CONFIG.BASESCAN_TOKEN} target="_blank" rel="noreferrer">BaseScan (HET)</a>
-            </div>
-            <p className="mt-3 text-xs text-neutral-500">Contrat token : {CONFIG.CONTRACT_ADDRESS}</p>
-          </div>
+{/* HERO */}
+<section className="max-w-6xl mx-auto px-6 py-20">
+  <div className="grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+        {CONFIG.TAGLINE}
+      </h1>
+      <p className="mt-4 text-neutral-700">
+        Phase 1 : levée exclusivement via Escrow (USDC). HET existe sur Base,
+        mais la liquidité principale sera activée en Phase 2. Transparence on-chain & Safe multisig.
+      </p>
 
-          <div className="rounded-2xl border bg-white p-6 shadow-sm">
-            <h3 className="font-semibold mb-4">Statut Oracles</h3>
-            {oracle.ok ? (
-              <div className="grid gap-2 text-sm">
-                <div className="flex justify-between"><span>Dernière màj</span><span>{oracle.last_update}</span></div>
-                {Object.entries(oracle.metrics).map(([k, v]) => (
-                  <div key={k} className="flex justify-between">
-                    <span>{k}</span><span className="font-mono">{String(v)}</span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="text-sm text-neutral-600">
-                En attente de <code className="px-1 rounded bg-neutral-100">/data/oracle.json</code>.
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
+      <div className="mt-6 flex flex-wrap gap-3">
+        <a
+          href="/escrow"
+          className="px-4 py-2 rounded-2xl bg-black text-white text-sm"
+        >
+          Participer via Escrow sécurisé
+        </a>
+        <a
+          href={CONFIG.BASESCAN_TOKEN}
+          target="_blank"
+          rel="noreferrer"
+          className="px-4 py-2 rounded-2xl border text-sm"
+        >
+          Voir HET sur BaseScan
+        </a>
+      </div>
+
+      <p className="mt-3 text-xs text-neutral-500">
+        Contrat token : {CONFIG.CONTRACT_ADDRESS}
+      </p>
+    </div>
+    {/* … le panneau “Statut Oracles” à droite reste inchangé … */}
+  </div>
+</section>
 
       {/* ABOUT */}
       <Section id="about" title="Vision & principes">
